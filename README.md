@@ -36,6 +36,19 @@ A medallion lakehouse on Databricks that turns a broken 72-file CSV export into 
 
 <img src="https://raw.githubusercontent.com/JacobWillson13/adventureworks-lakehouse/main/docs/images/dashboard_overview.png" alt="AdventureWorks AI/BI dashboard overview" width="100%">
 
+### [SaaS Usage Streaming on Azure](https://github.com/JacobWillson13/saas-usage-stream-azure)
+
+**Azure Database for PostgreSQL · Azure Managed Grafana · Python · SQL · River**
+
+A real-time analytics pipeline for a simulated B2B SaaS company. CRM, product, and payment data stream into Azure PostgreSQL at about 500 events per minute, feeding a live Grafana dashboard, an outlier detector, and an online model that predicts which free trials convert to paid.
+
+- Loads **1.25 million rows** of history, then streams live events in one-second transactions. Consumers read past their own watermarks and write idempotently, so a take can be reset and replayed exactly in about 3 seconds.
+- Flags anomalies **about 2.5 seconds** after they land, with perfect recall and precision on duplicate payments and negative invoices across 517 labeled injections.
+- Caught a **label leak** in its own evaluation: an apparent 0.71 AUC came from when trials were scored. Fixed day-7 scoring gives an honest 0.54 from a calibrated model whose main signal is prior personal use (52% vs. 30% conversion).
+- Serves a **42-panel Grafana dashboard** through a read-only role that can see only dashboard views.
+
+<img src="https://raw.githubusercontent.com/JacobWillson13/saas-usage-stream-azure/main/docs/img/dashboard-live.png" alt="Live Grafana dashboard for the SaaS streaming pipeline" width="100%">
+
 ## Selected Projects
 
 ### Analytics Engineering and Business Intelligence
@@ -69,6 +82,6 @@ Analytics engineering and data modeling · Business intelligence and decision su
 - **Programming and Analytics:** Python, SQL, R, JupyterLab, Excel
 - **Data Engineering and Modeling:** dbt, Snowflake, Databricks (Asset Bundles, Lakeflow), Apache Spark / PySpark, Delta Lake, DuckDB, Hightouch
 - **BI and Enterprise Platforms:** Power BI, Tableau, Looker / LookML, Streamlit, Databricks AI/BI, Spotfire, SAP, Microsoft Dynamics 365, Salesforce, o9 Solutions
-- **Machine Learning and Applied AI:** scikit-learn, PyTorch, Hugging Face Transformers, LangChain, Ollama, vLLM
+- **Machine Learning and Applied AI:** scikit-learn, River, PyTorch, Hugging Face Transformers, LangChain, Ollama, vLLM
 - **Data and Retrieval:** PostgreSQL, ChromaDB, Qdrant
-- **Cloud, MLOps, and Infrastructure:** GCP, Vertex AI, MLflow, Docker, GitHub Actions, Linux, CUDA, Prometheus, Grafana
+- **Cloud, MLOps, and Infrastructure:** Azure (Database for PostgreSQL, Managed Grafana), GCP, Vertex AI, MLflow, Docker, GitHub Actions, Linux, CUDA, Prometheus, Grafana
