@@ -49,6 +49,19 @@ A real-time analytics pipeline for a simulated B2B SaaS company. CRM, product, a
 
 <img src="https://raw.githubusercontent.com/JacobWillson13/saas-usage-stream-azure/main/docs/img/dashboard-live.png" alt="Live Grafana dashboard for the SaaS streaming pipeline" width="100%">
 
+### [Next-Day Stockout Alerts](https://github.com/JacobWillson13/freshretail-stockout-prediction)
+
+**Python · SQL · DuckDB · LightGBM · scikit-learn · SHAP · GitHub Actions**
+
+A model that ranks 50,000 perishable store-product series (898 stores, public FreshRetailNet-50K data) each evening by their risk of running out of stock tomorrow, so a replenishment team can review the top of the list overnight.
+
+- At a review capacity of **5,000 alerts a day, 65.1% are real stockouts**, against 54.9% for the best simple baseline (+0.102, 95% CI 0.096 to 0.108).
+- Builds every feature in a **layered SQL pipeline**, with a leakage test that scrambles all future data and checks that no feature changes.
+- Selects the model with a **5-fold rolling-origin backtest**, scores the test week once, and reports **store-clustered bootstrap intervals**, calibration, and SHAP.
+- States its limits: about 19% recall at that capacity and weak results in rare-stockout categories. Logistic regression nearly matches LightGBM, so the gain comes from the features rather than the model.
+
+<img src="https://raw.githubusercontent.com/JacobWillson13/freshretail-stockout-prediction/main/reports/figures/hero_precision_at_k.png" alt="Precision at each daily review capacity, stockout model vs best baseline" width="100%">
+
 ## Selected Projects
 
 ### Analytics Engineering and Business Intelligence
@@ -82,6 +95,6 @@ Analytics engineering and data modeling · Business intelligence and decision su
 - **Programming and Analytics:** Python, SQL, R, JupyterLab, Excel
 - **Data Engineering and Modeling:** dbt, Snowflake, Databricks (Asset Bundles, Lakeflow), Apache Spark / PySpark, Delta Lake, DuckDB, Hightouch
 - **BI and Enterprise Platforms:** Power BI, Tableau, Looker / LookML, Streamlit, Databricks AI/BI, Spotfire, SAP, Microsoft Dynamics 365, Salesforce, o9 Solutions
-- **Machine Learning and Applied AI:** scikit-learn, River, PyTorch, Hugging Face Transformers, LangChain, Ollama, vLLM
+- **Machine Learning and Applied AI:** scikit-learn, LightGBM, SHAP, River, PyTorch, Hugging Face Transformers, LangChain, Ollama, vLLM
 - **Data and Retrieval:** PostgreSQL, ChromaDB, Qdrant
 - **Cloud, MLOps, and Infrastructure:** Azure (Database for PostgreSQL, Managed Grafana), GCP, Vertex AI, MLflow, Docker, GitHub Actions, Linux, CUDA, Prometheus, Grafana
