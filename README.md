@@ -4,9 +4,7 @@
 
 [Portfolio](https://jacobwillson.com/) · [LinkedIn](https://www.linkedin.com/in/jacob-j-willson/)
 
-My work spans analytics engineering, business intelligence, advanced analytics, data science, and applied AI. That work started in 2011 as a business analyst at Cool Gear International and continued through analytics, operations, and ERP work at Reebok, Boston Scientific, and New Balance, along with consulting and research roles.
-
-Today, I work as an Applied AI Research Fellow, building on that experience with experimental design, predictive modeling, NLP, retrieval-augmented generation, synthetic data, model evaluation, and AI infrastructure. I focus on turning complex data and model behavior into tested pipelines, defensible findings, and practical decisions.
+AI research fellow at the Air Force Research Laboratory. My background is business intelligence and data analytics at Forrester Research and New Balance; I now build data pipelines, LLM and agent evaluations, and GPU inference infrastructure.
 
 ## Featured Projects
 
@@ -64,11 +62,11 @@ A real-time analytics pipeline for a simulated B2B SaaS company. CRM, product, a
 
 ## Selected Projects
 
-### Analytics Engineering and Business Intelligence
+### Analytics Engineering and Data Platforms
 
 - **[U.S. Retail Sales Time Series in SQL](https://github.com/JacobWillson13/retail-sales-timeseries-sql)** — Analyzed 29 years of U.S. Census retail data in PostgreSQL using window functions, regression aggregates, change-point detection, and three-year forecasts with prediction intervals and backtests.
 
-### Advanced Analytics, Experimentation, and Decision Science
+### Experimentation and Decision Science
 
 - **[Next-Day Stockout Alerts](https://github.com/JacobWillson13/freshretail-stockout-prediction)** — Built a LightGBM model on a layered SQL feature pipeline that ranks 50,000 perishable store-product series by next-day stockout risk, raising alert precision from 54.9% to 65.1% at 5,000 alerts a day, validated with a leakage test, rolling-origin backtest, and store-clustered bootstrap intervals.
 
