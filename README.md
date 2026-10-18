@@ -10,6 +10,19 @@ Today, I work as an Applied AI Research Fellow, extending that foundation throug
 
 ## Featured Projects
 
+### [Agent-Ready Analytics: Benchmarking Context for Data Agents](https://github.com/JacobWillson13/agent-ready-analytics)
+
+**BigQuery · dbt · MetricFlow · LangGraph · LangSmith · Ollama · GitHub Actions**
+
+A benchmark that measures how much a governed context layer (dbt docs, a MetricFlow semantic layer, and written business guides) changes a data agent's accuracy, cost, and latency, and whether it lets a small local model compete with an API model. The data comes from a seeded simulation of a fictional developer-tools SaaS company with 13 planted data traps, and every answer is scored in code against an answer key.
+
+- Ran **1,152 agent executions** (64 questions, 3 context levels, 2 models, 3 runs each) and reports question-clustered bootstrap intervals.
+- The context layer took local **Gemma 4 26B from 23% to 83%** accuracy on one RTX 3090 and cut its gap to Claude Haiku 5.5 from 43 points to 10, though not to parity.
+- Traced every remaining full-context error to a cause, including a semantic-layer dimension that reports current state. Fixing its description took those questions from 2 of 12 runs correct to 11 of 12.
+- Full context used **63% fewer input tokens** and 59% less time than raw tables. CI reruns the context eval on every pull request that changes the context layer and posts the result as a comment.
+
+<img src="https://raw.githubusercontent.com/JacobWillson13/agent-ready-analytics/main/docs/screenshots/langsmith-dashboard-accuracy.png" alt="LangSmith dashboard showing data agent accuracy by model and context level" width="100%">
+
 ### [Seats-to-Cash: SaaS Finance Data Stack](https://github.com/JacobWillson13/seats-to-cash)
 
 **dbt · Snowflake · DuckDB · Streamlit in Snowflake · Hightouch · Salesforce · LookML**
@@ -49,19 +62,6 @@ A real-time analytics pipeline for a simulated B2B SaaS company. CRM, product, a
 
 <img src="https://raw.githubusercontent.com/JacobWillson13/saas-usage-stream-azure/main/docs/img/dashboard-live.png" alt="Live Grafana dashboard for the SaaS streaming pipeline" width="100%">
 
-### [Next-Day Stockout Alerts](https://github.com/JacobWillson13/freshretail-stockout-prediction)
-
-**Python · SQL · DuckDB · LightGBM · scikit-learn · SHAP · GitHub Actions**
-
-A model that ranks 50,000 perishable store-product series (898 stores, public FreshRetailNet-50K data) each evening by their risk of running out of stock tomorrow, so a replenishment team can review the top of the list overnight.
-
-- At a review capacity of **5,000 alerts a day, 65.1% are real stockouts**, against 54.9% for the best simple baseline (+0.102, 95% CI 0.096 to 0.108).
-- Builds every feature in a **layered SQL pipeline**, with a leakage test that scrambles all future data and checks that no feature changes.
-- Selects the model with a **5-fold rolling-origin backtest**, scores the test week once, and reports **store-clustered bootstrap intervals**, calibration, and SHAP.
-- States its limits: about 19% recall at that capacity and weak results in rare-stockout categories. Logistic regression nearly matches LightGBM, so the gain comes from the features rather than the model.
-
-<img src="https://raw.githubusercontent.com/JacobWillson13/freshretail-stockout-prediction/main/reports/figures/hero_precision_at_k.png" alt="Precision at each daily review capacity, stockout model vs best baseline" width="100%">
-
 ## Selected Projects
 
 ### Analytics Engineering and Business Intelligence
@@ -70,15 +70,23 @@ A model that ranks 50,000 perishable store-product series (898 stores, public Fr
 
 ### Advanced Analytics, Experimentation, and Decision Science
 
+- **[Next-Day Stockout Alerts](https://github.com/JacobWillson13/freshretail-stockout-prediction)** — Built a LightGBM model on a layered SQL feature pipeline that ranks 50,000 perishable store-product series by next-day stockout risk, raising alert precision from 54.9% to 65.1% at 5,000 alerts a day, validated with a leakage test, rolling-origin backtest, and store-clustered bootstrap intervals.
+
+- **[Freight Broker Boom and Bust](https://github.com/JacobWillson13/freight-broker-boom-bust)** — Analyzed 99,281 real FMCSA broker authority records with a from-scratch Kaplan-Meier estimator, log-rank tests, and restricted mean survival time, showing that brokers who entered during the 2021-2022 freight boom lost their authority faster than earlier entrants.
+
 - **[Freight Cost & Sampling Analysis](https://github.com/JacobWillson13/freight-cost-analysis)** — Analyzed a 500,000-trip synthetic freight network using sampling simulation, cost-driver analysis, confounding controls, and route segmentation to produce operational decision insights.
 
 - **[Gemma 4 Security-Advisory Evaluation](https://github.com/JacobWillson13/gemma4-eval)** — Designed and analyzed a 3,900-run controlled experiment measuring how model size, supplied evidence, reasoning configuration, and temperature affect accuracy, latency, reliability, and deployment trade-offs.
 
 - **[Synthetic UAV Telemetry Evaluation](https://github.com/JacobWillson13/uav-pnt)** — Compared seven synthetic time-series generation approaches across two UAV datasets using statistical diagnostics and train-synthetic/test-real predictive evaluation.
 
+- **[Grateful Dead Lyric Analysis](https://github.com/JacobWillson13/grateful-dead-lyric-analysis)** — Tested whether the Grateful Dead's 50 most-played songs are lyrically simpler across 309 transcriptions, showing that type-token ratio is biased by song length and using MATTR, weighted log-odds, and NMF topic models to find that the real difference is subject matter.
+
 ### Applied AI and Information Systems
 
 - **[SCIO Ontology Validation](https://github.com/JacobWillson13/scio-eval)** — Combined literature analysis, LLM-assisted evidence coding, embeddings, clustering, network analysis, topology, and structured review to evaluate a socio-cognitive influence ontology.
+
+- **[News Acquisition Feasibility](https://github.com/JacobWillson13/news-acquisition-feasibility)** — Tested whether open tools can supply a reliable news corpus for persuasion analysis by collecting 246 articles from 30 U.S. outlets through Media Cloud and Trafilatura with a robots.txt-compliant crawler and two Gemini completeness judges, finding 62% to 72% complete-text yield overall and up to 89% from a curated outlet list.
 
 - **[DOME Handbook RAG](https://github.com/JacobWillson13/dome-rag)** — Built a local RAG application and evaluation suite containing 6,672 question-level results across retrieval strategies, embedding models, and language models.
 
@@ -88,13 +96,13 @@ A model that ranks 50,000 perishable store-product series (898 stores, public Fr
 
 ## Areas of Practice
 
-Analytics engineering and data modeling · Business intelligence and decision support · Financial and revenue analytics · Statistical analysis and experimental design · Predictive modeling and forecasting · NLP and RAG · Model evaluation · Synthetic data and time series · Document intelligence · AI infrastructure
+Analytics engineering and data modeling · Business intelligence and decision support · Financial and revenue analytics · Statistical analysis and experimental design · Predictive modeling and forecasting · NLP and RAG · AI agent evaluation and context engineering · Model evaluation · Synthetic data and time series · Document intelligence · AI infrastructure
 
 ## Technical Toolkit
 
 - **Programming and Analytics:** Python, SQL, R, JupyterLab, Excel
-- **Data Engineering and Modeling:** dbt, Snowflake, Databricks (Asset Bundles, Lakeflow), Apache Spark / PySpark, Delta Lake, DuckDB, Hightouch
+- **Data Engineering and Modeling:** dbt, MetricFlow, Snowflake, BigQuery, Databricks (Asset Bundles, Lakeflow), Apache Spark / PySpark, Delta Lake, DuckDB, Hightouch
 - **BI and Enterprise Platforms:** Power BI, Tableau, Looker / LookML, Streamlit, Databricks AI/BI, Spotfire, SAP, Microsoft Dynamics 365, Salesforce, o9 Solutions
-- **Machine Learning and Applied AI:** scikit-learn, LightGBM, SHAP, River, PyTorch, Hugging Face Transformers, LangChain, Ollama, vLLM
-- **Data and Retrieval:** PostgreSQL, ChromaDB, Qdrant
+- **Machine Learning and Applied AI:** scikit-learn, LightGBM, SHAP, River, PyTorch, Hugging Face Transformers, LangChain, LangGraph, LangSmith, Pydantic, Ollama, vLLM
+- **Data and Retrieval:** PostgreSQL, ChromaDB, Qdrant, Trafilatura
 - **Cloud, MLOps, and Infrastructure:** Azure (Database for PostgreSQL, Managed Grafana), GCP, Vertex AI, MLflow, Docker, GitHub Actions, Linux, CUDA, Prometheus, Grafana
