@@ -6,7 +6,7 @@
 
 My work spans analytics engineering, business intelligence, advanced analytics, data science, and applied AI. That work started in 2011 as a business analyst at Cool Gear International and continued through analytics, operations, and ERP work at Reebok, Boston Scientific, and New Balance, along with consulting and research roles.
 
-Today, I work as an Applied AI Research Fellow, extending that foundation through experimental design, predictive modeling, NLP, retrieval-augmented generation, synthetic data, model evaluation, and AI infrastructure. I focus on turning complex data and model behavior into tested pipelines, defensible findings, and practical decisions.
+Today, I work as an Applied AI Research Fellow, building on that experience with experimental design, predictive modeling, NLP, retrieval-augmented generation, synthetic data, model evaluation, and AI infrastructure. I focus on turning complex data and model behavior into tested pipelines, defensible findings, and practical decisions.
 
 ## Featured Projects
 
