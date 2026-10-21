@@ -8,6 +8,20 @@ AI research fellow at the Air Force Research Laboratory. My background is busine
 
 ## Featured Projects
 
+### [NFIP CRS Measurement: Are Flood Insurance Discounts Priced Right?](https://github.com/JacobWillson13/nfip-crs-measurement)
+
+**Databricks Asset Bundles · Delta Lake · Unity Catalog · MLflow · PySpark · DuckDB · AI/BI Dashboards**
+
+A data pipeline and measurement study on FEMA's National Flood Insurance Program. It asks whether Community Rating System discounts, 5% per class step, match the losses they actually prevent. About 75 million policy records and 2.7 million claims become a national community-year panel in DuckDB, and gold, quality checks, and the analysis run as a serverless Databricks job from the same SQL and Python.
+
+- Caught a data problem on the first national load: FEMA's records stamp each community's **current** CRS class onto every historical year. The feasibility gates flagged it, and class history is rebuilt from Community Status Book dates.
+- Within the same county and year, each class step lowers loss cost **5.9% against a scheduled 5%**, so discounts are right on average. By class, the **Class 7 and Class 9** discounts are 85% and 94% likely too generous.
+- Placebo simulations showed the original difference-in-differences was **biased (+41% with no true effect, 25% false positives)**. The within-county redesign removed the bias, and a pre-registered randomized trial design shows what randomization can and cannot measure.
+- A Bayesian pricing decision with value of information: halving the uncertainty is worth about **$96M a year**, far more than re-pricing on today's evidence.
+- The same SQL and quality checks run on DuckDB and Databricks, with a CI parity test, Unity Catalog lineage, MLflow tracking, and a dashboard defined in code.
+
+<img src="https://raw.githubusercontent.com/JacobWillson13/nfip-crs-measurement/main/databricks/screenshots/overview.png" alt="Databricks AI/BI dashboard for the NFIP CRS project: discounts right on average, with Class 7 and Class 9 flagged as likely too generous, and a state map of CRS participation" width="100%">
+
 ### [Agent-Ready Analytics: Benchmarking Context for Data Agents](https://github.com/JacobWillson13/agent-ready-analytics)
 
 **BigQuery · dbt · MetricFlow · LangGraph · LangSmith · Ollama · GitHub Actions**
@@ -99,7 +113,7 @@ Analytics engineering and data modeling · Business intelligence and decision su
 ## Technical Toolkit
 
 - **Programming and Analytics:** Python, SQL, R, JupyterLab, Excel
-- **Data Engineering and Modeling:** dbt, MetricFlow, Snowflake, BigQuery, Databricks (Asset Bundles, Lakeflow), Apache Spark / PySpark, Delta Lake, DuckDB, Hightouch
+- **Data Engineering and Modeling:** dbt, MetricFlow, Snowflake, BigQuery, Databricks (Asset Bundles, Lakeflow, Unity Catalog), Apache Spark / PySpark, Delta Lake, DuckDB, Hightouch
 - **BI and Enterprise Platforms:** Power BI, Tableau, Looker / LookML, Streamlit, Databricks AI/BI, Spotfire, SAP, Microsoft Dynamics 365, Salesforce, o9 Solutions
 - **Machine Learning and Applied AI:** scikit-learn, LightGBM, SHAP, River, PyTorch, Hugging Face Transformers, LangChain, LangGraph, LangSmith, Pydantic, Ollama, vLLM
 - **Data and Retrieval:** PostgreSQL, ChromaDB, Qdrant, Trafilatura
