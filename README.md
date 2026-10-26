@@ -74,6 +74,22 @@ A data pipeline and measurement study on FEMA's National Flood Insurance Program
 
 <img src="https://raw.githubusercontent.com/JacobWillson13/nfip-crs-measurement/main/databricks/screenshots/overview.png" alt="Databricks AI/BI dashboard for the NFIP CRS project: discounts right on average, with Class 7 and Class 9 flagged as likely too generous, and a state map of CRS participation" width="100%">
 
+### [Ghost Storefronts: How Stale Is NYC's Record of Open Businesses?](https://github.com/JacobWillson13/ghost-storefronts)
+
+**MongoDB · Python · LightGBM · scikit-learn · Altair / Vega-Lite · Docker**
+
+**[Interactive data story](https://jacobwillson.com/dashboards/ghost-storefronts.html)**
+
+New York's inspection agency only learns a business closed when an inspector visits, so its list of open businesses is only as current as the last inspection. This project rebuilds 1.18 million storefront inspection records (2010 to 2026) in MongoDB, measures how stale that list gets, checks it against three chains that closed on known dates, and predicts which visits will find a business already closed.
+
+- Built raw, silver, and gold layers in MongoDB across two city record systems, with `$geoWithin` neighborhood assignment, business identities linked across a 2023 record-system switch, and leak-free visit features from `$setWindowFields`.
+- **17.4% of 2025 inspection visits** found the business already closed, and 48% of those businesses were last seen open three or more years earlier.
+- Used RadioShack, Payless, and Rite Aid as ground truth: about **1 in 4** RadioShack and Payless stores never got a closure record, and Payless records took a median **5.1 years** to arrive.
+- A one-line rule (months since a business was last seen open) finds a closed business in **55% of the top 10%** of visits; trained models add 2.9 to 8.9 points, reported with business-clustered bootstrap intervals and calibration.
+- Estimates that about **5,700 of 43,447** businesses seen open since 2023 would be recorded closed if visited today.
+
+<img src="https://raw.githubusercontent.com/JacobWillson13/ghost-storefronts/main/docs/img/map.png" alt="Map of New York City neighborhoods shaded by the share of 2025 inspection visits that found the business already closed" width="100%">
+
 ## Selected Projects
 
 ### Analytics Engineering and Data Platforms
@@ -116,5 +132,5 @@ Analytics engineering and data modeling · Business intelligence and decision su
 - **Data Engineering and Modeling:** dbt, MetricFlow, Snowflake, BigQuery, Databricks (Asset Bundles, Lakeflow, Unity Catalog), Apache Spark / PySpark, Delta Lake, DuckDB, Hightouch
 - **BI and Enterprise Platforms:** Power BI, Tableau, Looker / LookML, Streamlit, Databricks AI/BI, Spotfire, SAP, Microsoft Dynamics 365, Salesforce, o9 Solutions
 - **Machine Learning and Applied AI:** scikit-learn, LightGBM, SHAP, River, PyTorch, Hugging Face Transformers, LangChain, LangGraph, LangSmith, Pydantic, Ollama, vLLM
-- **Data and Retrieval:** PostgreSQL, ChromaDB, Qdrant, Trafilatura
+- **Data and Retrieval:** PostgreSQL, MongoDB, ChromaDB, Qdrant, Trafilatura
 - **Cloud, MLOps, and Infrastructure:** Azure (Database for PostgreSQL, Managed Grafana), GCP, Vertex AI, MLflow, Docker, GitHub Actions, Linux, CUDA, Prometheus, Grafana
