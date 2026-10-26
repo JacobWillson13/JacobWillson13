@@ -112,6 +112,8 @@ New York's inspection agency only learns a business closed when an inspector vis
 
 ### Applied AI and Information Systems
 
+- **[Multi-Node LLM Inference on Two DGX Sparks](https://github.com/JacobWillson13/dgx-spark-cluster)** — Built and benchmarked a two-node vLLM cluster over a 196 Gb/s ConnectX-7 link, with a correctness gate on every throughput run and predictions recorded before each test, finding that one server split across both nodes reached 1.90x one node's throughput, tensor parallelism beat pipeline parallelism 2x, and FP8 cost 1.8 GSM8K points against 13.7 for NVFP4.
+
 - **[SCIO Ontology Validation](https://github.com/JacobWillson13/scio-eval)** — Combined literature analysis, LLM-assisted evidence coding, embeddings, clustering, network analysis, topology, and structured review to evaluate a socio-cognitive influence ontology.
 
 - **[News Acquisition Feasibility](https://github.com/JacobWillson13/news-acquisition-feasibility)** — Tested whether open tools can supply a reliable news corpus for persuasion analysis by collecting 246 articles from 30 U.S. outlets through Media Cloud and Trafilatura with a robots.txt-compliant crawler and two Gemini completeness judges, finding 62% to 72% complete-text yield overall and up to 89% from a curated outlet list.
